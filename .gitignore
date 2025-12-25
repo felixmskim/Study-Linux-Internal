@@ -1,0 +1,22 @@
+# (중요!) 컴파일된 바이너리나 임시 파일 제외
+# --- [컴파일 및 빌드 결과물] ---
+*.o
+*.ko
+*.mod.c
+*.order
+*.symvers
+.tmp_versions/
+.*.cmd
+.tmp_*
+*.elf
+*.bin
+*.out
+
+# --- [시스템 및 IDE 파일] ---
+.vscode/          # VSCode 설정 (개인 설정이므로 제외 추천)
+.DS_Store        # macOS용
+Thumbs.db        # Windows용
+
+# --- [기타] ---
+*.log            # 로그 파일 (필요 시 제외)
+*.swp            # Vim 임시 파일
