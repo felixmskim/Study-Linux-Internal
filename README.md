@@ -10,8 +10,8 @@
 # Curriculum: 
 내가 공부할 로드맵 (아래 제안하는 주제들).
 
-# Daily Logs/Topics: 
-날짜별 혹은 주제별 학습 내용 링크.
+# Topics: 
+주제별 학습 내용 링크.
 
 # Reference
 https://medium.com/@mukulkathpalia/my-journey-into-linux-kernel-internals-a-beginners-roadmap-60350eccdae6
