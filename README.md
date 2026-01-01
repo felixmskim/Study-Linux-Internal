@@ -42,3 +42,4 @@ Study-Linux-Internal/
 
 # Reference
 https://medium.com/@mukulkathpalia/my-journey-into-linux-kernel-internals-a-beginners-roadmap-60350eccdae6
+https://velog.io/@mythos/series/Linux-Tutorial
