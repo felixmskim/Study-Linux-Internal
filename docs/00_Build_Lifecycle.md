@@ -1,5 +1,7 @@
 # Understanding the Linux Kernel Build Lifecycle: From Source to Binary
 
+**리눅스 커널** 은 사용자 응용 프로그램과 컴퓨터 하드웨어 사이에서 모든 상호작용을 중재하는 최상위 관리자이자 추상화 계층
+
 **리눅스 커널 빌드 프로세스:** 수많은 소스 코드를 사용자의 시스템 환경에 맞춰 최적화된 **단일 바이너리 이미지**로 만드는 복잡한 과정이다. 이 과정은 크게 **소스 준비 및 초기화**, **커널 설정(Config)**, **컴파일 및 바이너리 생성(Binary)** 단계로 나뉜다.
 
 ## 1. The Foundation: Kernel Source Tree
@@ -8,7 +10,7 @@
 - `drivers/` : 하드웨어 제어를 위한 드라이버 코드의 집합소
 - `kernel/`, `mm/`, `fs/` : 프로세스 관리, 메모리 관리, 파일 시스템 등 핵심 로직
 
-[커널 소스의 주요 디렉토리 구조(arch, drivers, include 등)를 계층적으로 보여주는 다이어그램]
+![Kernel Source Structure](./assets/images/kernel%20source%20structure.png)
 
 ## 2. The Blueprint: Kernel Configuration (`.config`)
 빌드 전, 어떤 기능을 포함하고 어떤 하드웨어를 지원할지 결정하는 단계이다. 리눅스 커널은 **Kconfig** 시스템을 사용하여 수천 개의 옵션 간 의존성을 관리한다.
@@ -18,7 +20,7 @@
     - **Built-in(`y`):** 커널 이미지(`vmlinux`)에 직접 포함된다. 부팅 시 바로 메모리에 로드된다.
     - **Modular(`m`):** 별도의 파일(`.ko`)로 빌드되어 필요할 때 동적으로 로드된다. 커널 크기를 줄이는 데 효과적
 
-[사용자가 설정 도구(menuconfig 등)를 통해 선택한 결과가 어떻게 .config 파일로 변환되고, 이것이 다시 Makefile에 영향을 주는지 보여주는 흐름도]
+![Kconfig Process](./assets/images/kconfig_process.png)
 
 ## 3. The Transformation: Compilation & Toolchain
 설정이 완료되면 `make` 명령을 통해 실제 컴파일이 시작된다. 이때 *Kbuild*라는 특수한 빌드 시스템이 동작한다.
@@ -27,12 +29,12 @@
 - **Object Files:** 각 `.c` 파일은 기계어로 번역된 `.o`(Object file)가 된다.
 
 ## 4. The Result: Final Kernel Image Generation
-흩어져 있는 오브젝트 파일들을 하나로 묶어 실행 가능한 바이너리를 만드는 최종 단꼐이다.
+흩어져 있는 오브젝트 파일들을 하나로 묶어 실행 가능한 바이너리를 만드는 최종 단계이다.
 - **vmlinux:** 커널의 본체라고 할 수 있는 거대한 ELF 형식의 비압축 바이너리이다. 디버깅 정보가 포함되어 있어 크기가 매우 크다.
 - **Image Compression:** 부팅 속도와 저장 공간을 위해 `vmlinux`를 압축한다. (예: `gzip`, `xz`)
 - **The Bootable Image(`bzImage`):** 압축된 커널 데이터에 **부트 스트랩 코드(Setup code)** 를 합친 최종 결과물이다. 부팅 시 이 스트랩 코드가 먼저 실행되어 압축을 풀고 커널을 메모리에 올린다.
 
-[개별 소스 파일들이 오브젝트 파일로 컴파일되고, 이것들이 vmlinux로 링킹된 후, 최종적으로 압축 및 부트 코드가 결합되어 bzImage가 되는 과정을 선형적으로 보여주는 파이프라인 이미지]
+![bzImage](./assets/images/bzimage.png)
 
 ## Summary of the Flow
 1. **Source:** 수만 개의 소스 코드 존재.
