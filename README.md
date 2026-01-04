@@ -43,3 +43,6 @@ Study-Linux-Internal/
 - [Main Guide] https://velog.io/@mythos/series/Linux-Tutorial
 - [Roadmap] https://medium.com/@mukulkathpalia/my-journey-into-linux-kernel-internals-a-beginners-roadmap-60350eccdae6
 - [Kernel Archive] https://www.kernel.org/
+
+---
+*Maintained by [Kim, Minseong/felixmskim] @ CS LAB.*
