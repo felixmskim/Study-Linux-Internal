@@ -80,6 +80,7 @@ git tag -l 'v6.*' | sort -V | tail -n 10
 # branc 생성 및 원하는 버전으로 소스 전환
 git checkout -b CV6.18.2 v6.18.2 
 ```
+<br></br>
 
 # 4. config 파일 생성하기
 빌드에 앞서 빌드에 필요한 커널 설정 파일을 생성해야 한다. `make menuconfig`를 통해 생성하는 방법도 있지만, 기존의 `config`파일을 불러오는 방법을 사용할 것이다. 일반적인 Ubuntu 같은 배포판은 커널을 설치할 때 설정 파일(config)을 `/boot` 폴더에 함께 넣어주지만, WSL2는 Microsoft가 빌드한 전용 커널을 사용한다. 그리고 그 설정 파일을 `/boot`가 아닌 다른 위치에 둔다.
@@ -111,6 +112,8 @@ CONFIG_MODULE_SIG_ALL
 CONFIG_MODULE_SIG_KEY
 CONFIG_SYSTEM_TRUSTED_KEYS
 ```
+
+<br></br>
 
 # 5. 빌드하기
 지금까지 커널 리눅스 소스코드 빌드를 위한 빌드업이었다. 다시 소스코드 디렉토리 (`linux-stable`)로 들어가서 다음의 명령어를 입력하자.
