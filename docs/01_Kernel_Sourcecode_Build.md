@@ -124,7 +124,7 @@ CONFIG_SYSTEM_TRUSTED_KEYS
 # 빌드 결과물이 저장된 위치를 저장하는 옵션
 # Out-of-tree build: 소스 코드 디렉터리와 빌드 결과물을 분리할 수 있음. 깔끔해보이고 하나의 소스로 여러 가지 설정의 빌드를 동시에 진행할 때 유리함.
 # build 디렉터리가 실제로 있어야 오류 안남!
-make -j$(nproc) O=../[build 디렉토리 명]/
+make -j$(nproc) O=/[build 디렉토리 명]/
 ```
 
 ![build success](./assets/images/빌드%20success.png)
