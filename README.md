@@ -9,7 +9,7 @@
 # 🧰 Analysis Environment: 
 ## OS & Kernel
 - Host OS: Windows 11
-- Guest OS: Ubuntu 22.04 LTS (on WSL2)
+- Guest OS: Ubuntu 24.04 LTS (on WSL2)
 - Analysis kernel: Linux Kernel v6.18.2 (Stable)
 - Builde Method: Out-of-tree build(소스와 빌드 결과물 분리)
 ## Hardware Optimization (`.wslconfig`)
